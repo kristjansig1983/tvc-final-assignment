@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 export const MenuButton = styled.button`
   height: 50px;
   width: 130px;
-  background-color: #ba2329;
+  background-color: #4c19a3;
   color: var(--clr-primary);
   border: 3px solid var(--clr-primary);
   margin-left: 30px;
@@ -13,18 +13,10 @@ export const MenuButton = styled.button`
   font-family: 'Times New Roman', Times, serif;
   font-size: medium;
   font-weight: bold;
+  color: white;
   cursor: pointer;
   &:hover {
     background-color: var(--clr-hover);
   }
-  ${(props) =>
-    props.selected &&
-    css`
-      background-color: var(--clr-primary);
-      color: #c16757;
-      border: 3px solid #ba2329;
-      &:hover {
-        background-color: var(--clr-primary);
-      }
-    `}
+  
 `
