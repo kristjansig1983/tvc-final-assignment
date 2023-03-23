@@ -12,7 +12,7 @@ const NavBar = styled.div`
   grid-area: nav;
   grid-template-columns: repeat(8, 2fr);
   grid-template-areas: 'logo logo button button button button . .';
-  border-bottom: 4px solid #b377f8;
+
   width: 100%;
   height: 10em;
 `
