@@ -1,5 +1,4 @@
-import styled, { css } from "styled-components";
-
+import styled, { css } from 'styled-components'
 
 export const MenuButton = styled.button`
   height: 50px;
@@ -10,7 +9,7 @@ export const MenuButton = styled.button`
   margin-left: 30px;
   margin-right: 30px;
   border-radius: 20px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Varela Round';
   font-size: medium;
   font-weight: bold;
   color: white;
@@ -18,5 +17,4 @@ export const MenuButton = styled.button`
   &:hover {
     background-color: var(--clr-hover);
   }
-  
 `

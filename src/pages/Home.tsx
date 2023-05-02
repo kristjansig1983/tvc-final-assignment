@@ -21,22 +21,20 @@ function Home() {
           </Slider>,
           <Slider>
             <SliderImg
+              src={'https://photos.bandsintown.com/large/11228607.jpeg'}
+            ></SliderImg>
+          </Slider>,
+          <Slider>
+            <SliderImg
               src={
-                'https://scontent.frkv2-1.fna.fbcdn.net/v/t39.30808-6/329593388_595452748608052_6060398424105268395_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=UPEl7qDUvs8AX_vhVEw&_nc_ht=scontent.frkv2-1.fna&oh=00_AfC12Yv-ZSu53EWVZmGagUZvwsYo1qWrQ3tvdH5kTxfkkA&oe=64181F36'
+                'https://scontent-dub4-1.xx.fbcdn.net/v/t39.30808-6/329593388_595452748608052_6060398424105268395_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=NV_tegXrIyQAX9OJ88e&_nc_ht=scontent-dub4-1.xx&oh=00_AfBGIiQNxmBm4_ZssYR0rCcWi2Vdi6mCu5wXI-zlkXgy8g&oe=64556CF6'
               }
             ></SliderImg>
           </Slider>,
           <Slider>
             <SliderImg
               src={
-                'https://scontent.frkv2-1.fna.fbcdn.net/v/t39.30808-6/329685041_531279082433304_4491534593262512513_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=Ltb3QeSLeJQAX-whtwP&_nc_ht=scontent.frkv2-1.fna&oh=00_AfBRDgCVf13bvJ0Q9UAJBTYMYdQQ9MvKlBBsJxlgeml62Q&oe=6418BE9C'
-              }
-            ></SliderImg>
-          </Slider>,
-          <Slider>
-            <SliderImg
-              src={
-                'https://scontent.frkv2-1.fna.fbcdn.net/v/t39.30808-6/323805238_723566619090192_7483823817535868629_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=7f1UKFhQIz8AX9D040H&_nc_ht=scontent.frkv2-1.fna&oh=00_AfBLMe5DXl_i8Qih_EVwCUcTGKo4EwPHxOQPDAZRFWANCw&oe=6418E187'
+                'https://scontent-dub4-1.xx.fbcdn.net/v/t39.30808-6/323885126_741035844109380_1451857662897556584_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=hlpY6cXFO4IAX8A3fGN&_nc_ht=scontent-dub4-1.xx&oh=00_AfCDeJwv3mnkvPRvF8Ivxb2XgYzY2gRjHfzaNVaQ3xK5xQ&oe=64569153'
               }
             ></SliderImg>
           </Slider>,

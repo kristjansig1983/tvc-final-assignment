@@ -72,8 +72,8 @@ function Header() {
     <NavBar>
       <LogoDiv>
         <Logo
-          src='https://www.theaudiodb.com/images/media/artist/logo/vintage-caravan-the-555cc9f2304da.png'
-          alt='logo'
+          src="https://www.theaudiodb.com/images/media/artist/logo/vintage-caravan-the-555cc9f2304da.png"
+          alt="logo"
         />
       </LogoDiv>
       <ButtonDiv>
