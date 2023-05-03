@@ -25,12 +25,14 @@ const ParagraphContainer = styled.div`
   justify-content: center;
   padding: 20px;
 `
+const ImageContainer = styled.div`
+  position: relative;
+`
 
 const Image = styled.img<{ imageOnRight: boolean }>`
   height: 200px;
   margin-right: ${(props) => (props.imageOnRight ? '20px' : '0')};
   margin-left: ${(props) => (props.imageOnRight ? '0' : '20px')};
-  float: left;
 
   ${(props) =>
     props.imageOnRight &&
@@ -44,10 +46,15 @@ const Image = styled.img<{ imageOnRight: boolean }>`
       order: 1;
     `}
 `
-const ImageDescription = styled.div`
-  font-size: 14px;
+const Caption = styled.p`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
   text-align: center;
 `
 
@@ -69,15 +76,20 @@ const ParagraphWithImage: React.FC<ParagraphWithImageProps> = ({
       {imageOnRight ? (
         <>
           <Paragraph>{paragraphText}</Paragraph>
-          <Image src={src} alt={imageAltText} imageOnRight={imageOnRight} />
+          <ImageContainer>
+            <Image src={src} alt={imageAltText} imageOnRight={imageOnRight} />
+            <Caption>{imageDescription}</Caption>
+          </ImageContainer>
         </>
       ) : (
         <>
-          <Image src={src} alt={imageAltText} imageOnRight={imageOnRight} />
           <Paragraph>{paragraphText}</Paragraph>
+          <ImageContainer>
+            <Image src={src} alt={imageAltText} imageOnRight={imageOnRight} />
+            <Caption>{imageDescription}</Caption>
+          </ImageContainer>
         </>
       )}
-      <ImageDescription>{imageDescription}</ImageDescription>
     </ParagraphContainer>
   )
 }

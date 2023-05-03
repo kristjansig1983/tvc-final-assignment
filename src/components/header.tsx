@@ -4,6 +4,7 @@ import { Route, Routes, Navigate, useNavigate } from 'react-router-dom'
 import { MenuButton } from './menuButton'
 import Story from '../pages/Story'
 import Home from '../pages/Home'
+import Discography from '../pages/Discography'
 
 const NavBar = styled.div`
   display: grid;
@@ -44,6 +45,10 @@ function Header() {
     navigate('/')
   }
 
+  const discographyPage = () => {
+    navigate('/Discography')
+  }
+
   let isHomeSelected = false
   let isDishSelected = false
   let isDrinkSelected = false
@@ -79,7 +84,7 @@ function Header() {
       <ButtonDiv>
         <MenuButton onClick={homePage}>Home</MenuButton>
         <MenuButton onClick={storyPage}>History</MenuButton>
-        <MenuButton>Discography</MenuButton>
+        <MenuButton onClick={discographyPage}>Discography</MenuButton>
         <MenuButton>Store</MenuButton>
       </ButtonDiv>
     </NavBar>
