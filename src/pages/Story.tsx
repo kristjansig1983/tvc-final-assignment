@@ -20,7 +20,6 @@ const StoryDiv = styled.div`
 
 const ParagraphContainer = styled.div`
   display: flex;
-  justify-items: center;
   align-items: center;
   justify-content: center;
   padding: 20px;
@@ -73,6 +72,7 @@ const ParagraphWithImage: React.FC<ParagraphWithImageProps> = ({
 }) => {
   return (
     <ParagraphContainer>
+      {' '}
       {imageOnRight ? (
         <>
           <Paragraph>{paragraphText}</Paragraph>
@@ -83,11 +83,11 @@ const ParagraphWithImage: React.FC<ParagraphWithImageProps> = ({
         </>
       ) : (
         <>
-          <Paragraph>{paragraphText}</Paragraph>
           <ImageContainer>
             <Image src={src} alt={imageAltText} imageOnRight={imageOnRight} />
             <Caption>{imageDescription}</Caption>
           </ImageContainer>
+          <Paragraph>{paragraphText}</Paragraph>
         </>
       )}
     </ParagraphContainer>
