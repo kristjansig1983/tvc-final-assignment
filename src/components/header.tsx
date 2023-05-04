@@ -49,6 +49,10 @@ function Header() {
     navigate('/Discography')
   }
 
+  const storePage = () => {
+    navigate('/Store')
+  }
+
   let isHomeSelected = false
   let isDishSelected = false
   let isDrinkSelected = false
@@ -85,7 +89,7 @@ function Header() {
         <MenuButton onClick={homePage}>Home</MenuButton>
         <MenuButton onClick={storyPage}>History</MenuButton>
         <MenuButton onClick={discographyPage}>Discography</MenuButton>
-        <MenuButton>Store</MenuButton>
+        <MenuButton onClick={storePage}>Store</MenuButton>
       </ButtonDiv>
     </NavBar>
   )

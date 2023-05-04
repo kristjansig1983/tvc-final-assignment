@@ -47,7 +47,7 @@ const ContainerListWrapper = styled.div`
 
 const API_URL = 'https://api.punkapi.com/v2/beers'
 
-function Discography() {
+function Store() {
   const [containers, setContainers] = useState<Container[]>([])
 
   useEffect(() => {
@@ -76,4 +76,4 @@ function Discography() {
   )
 }
 
-export default Discography
+export default Store
