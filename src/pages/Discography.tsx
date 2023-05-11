@@ -18,10 +18,10 @@ const ImageContainer = styled.img`
 `
 
 interface Container {
-  id: number
-  name: string
+  albumId: number
+  albumName: string
   color: string
-  image_url: string
+  albumcoverUrl: string
 }
 
 const ContainerWrapper = styled.div<{ color: string }>`
@@ -45,14 +45,12 @@ const ContainerListWrapper = styled.div`
   grid-gap: 50px;
 `
 
-const API_URL = 'https://api.punkapi.com/v2/beers'
-
 function Discography() {
   const [containers, setContainers] = useState<Container[]>([])
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('https://api.punkapi.com/v2/beers')
+      const response = await fetch('https://localhost:7181/api/albums')
       const data = await response.json()
       setContainers(data)
     }
@@ -64,9 +62,9 @@ function Discography() {
       <DiscographyDiv>
         <ContainerListWrapper>
           {containers.map((container) => (
-            <ContainerWrapper key={container.id} color={container.color}>
-              <ImageContainer src={container.image_url} />
-              {container.name}
+            <ContainerWrapper key={container.albumId} color={container.color}>
+              <ImageContainer src={container.albumcoverUrl} />
+              {container.albumName}
             </ContainerWrapper>
           ))}
         </ContainerListWrapper>
