@@ -21,7 +21,7 @@ interface Container {
   albumId: number
   albumName: string
   color: string
-  albumcoverUrl: string
+  albumCoverUrl: string
 }
 
 const ContainerWrapper = styled.div<{ color: string }>`
@@ -63,7 +63,7 @@ function Discography() {
         <ContainerListWrapper>
           {containers.map((container) => (
             <ContainerWrapper key={container.albumId} color={container.color}>
-              <ImageContainer src={container.albumcoverUrl} />
+              <ImageContainer src={container.albumCoverUrl} />
               {container.albumName}
             </ContainerWrapper>
           ))}

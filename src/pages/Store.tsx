@@ -45,8 +45,6 @@ const ContainerListWrapper = styled.div`
   grid-gap: 50px;
 `
 
-const API_URL = 'https://api.punkapi.com/v2/beers'
-
 function Store() {
   const [containers, setContainers] = useState<Container[]>([])
 
