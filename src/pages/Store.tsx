@@ -6,42 +6,48 @@ import Footer from '../components/footer'
 const DiscographyDiv = styled.div`
   display: grid;
   flex-direction: column;
-  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  align-items: center;
   background-color: black;
   opacity: 0.87;
   color: white;
   height: auto;
+  font-family: 'Varela Round';
 `
 const ImageContainer = styled.img`
-  width: 50%;
-  height: auto;
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  margin: 10px;
 `
 
 interface Container {
-  id: number
-  name: string
+  merchId: number
+  merchName: string
+  merchImgUrl: string
   color: string
-  image_url: string
 }
 
 const ContainerWrapper = styled.div<{ color: string }>`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   background-color: ${({ color }) => color};
   width: auto;
   height: auto;
+  background-color: #100f0f;
+  border-radius: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   color: white;
   font-size: 24px;
   margin: 20px;
-  border: 5px solid white;
 `
 
 const ContainerListWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 50px;
 `
 
@@ -50,7 +56,7 @@ function Store() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('https://api.punkapi.com/v2/beers')
+      const response = await fetch('https://localhost:7181/api/merch')
       const data = await response.json()
       setContainers(data)
     }
@@ -62,9 +68,9 @@ function Store() {
       <DiscographyDiv>
         <ContainerListWrapper>
           {containers.map((container) => (
-            <ContainerWrapper key={container.id} color={container.color}>
-              <ImageContainer src={container.image_url} />
-              {container.name}
+            <ContainerWrapper key={container.merchId} color={container.color}>
+              <ImageContainer src={container.merchImgUrl} />
+              <h3>{container.merchName}</h3>
             </ContainerWrapper>
           ))}
         </ContainerListWrapper>

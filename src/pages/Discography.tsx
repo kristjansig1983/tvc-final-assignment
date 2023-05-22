@@ -6,15 +6,18 @@ import Footer from '../components/footer'
 const DiscographyDiv = styled.div`
   display: grid;
   flex-direction: column;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   background-color: black;
   opacity: 0.87;
   color: white;
   height: auto;
+  font-family: 'Varela Round';
 `
 const ImageContainer = styled.img`
-  width: 50%;
-  height: auto;
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  margin: 10px;
 `
 
 interface Container {
@@ -22,12 +25,17 @@ interface Container {
   albumName: string
   color: string
   albumCoverUrl: string
+  songs: Array<{
+    songId: number
+    songName: string
+  }>
 }
 
 const ContainerWrapper = styled.div<{ color: string }>`
   display: flex;
   flex-direction: column;
-  background-color: ${({ color }) => color};
+  background-color: #100f0f;
+  border-radius: 10px;
   width: auto;
   height: auto;
   display: flex;
@@ -36,12 +44,11 @@ const ContainerWrapper = styled.div<{ color: string }>`
   color: white;
   font-size: 24px;
   margin: 20px;
-  border: 5px solid white;
 `
 
 const ContainerListWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 50px;
 `
 
@@ -64,7 +71,12 @@ function Discography() {
           {containers.map((container) => (
             <ContainerWrapper key={container.albumId} color={container.color}>
               <ImageContainer src={container.albumCoverUrl} />
-              {container.albumName}
+              <h1>{container.albumName}</h1>
+              <ol>
+                {container.songs.map((song) => (
+                  <li key={song.songId}>{song.songName}</li>
+                ))}
+              </ol>
             </ContainerWrapper>
           ))}
         </ContainerListWrapper>

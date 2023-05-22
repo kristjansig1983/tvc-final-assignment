@@ -53,30 +53,11 @@ function Header() {
     navigate('/Store')
   }
 
-  let isHomeSelected = false
-  let isDishSelected = false
-  let isDrinkSelected = false
-  let isOrderSelected = false
-  if (window.location.pathname === '/') {
-    isHomeSelected = true
-  } else {
-    isHomeSelected = false
-  }
-  if (window.location.pathname === '/Dish') {
-    isDishSelected = true
-  } else {
-    isDishSelected = false
-  }
-  if (window.location.pathname === '/Drink') {
-    isDrinkSelected = true
-  } else {
-    isDrinkSelected = false
-  }
-  if (window.location.pathname === '/Order') {
-    isOrderSelected = true
-  } else {
-    isOrderSelected = false
-  }
+  let isHomeSelected = window.location.pathname === '/'
+  let isStorySelected = window.location.pathname === '/Story'
+  let isDiscographySelected = window.location.pathname === '/Discography'
+  let isStoreSelected = window.location.pathname === '/Store'
+
   return (
     <NavBar>
       <LogoDiv>
@@ -86,10 +67,18 @@ function Header() {
         />
       </LogoDiv>
       <ButtonDiv>
-        <MenuButton onClick={homePage}>Home</MenuButton>
-        <MenuButton onClick={storyPage}>History</MenuButton>
-        <MenuButton onClick={discographyPage}>Discography</MenuButton>
-        <MenuButton onClick={storePage}>Store</MenuButton>
+        <MenuButton selected={isHomeSelected} onClick={homePage}>
+          Home
+        </MenuButton>
+        <MenuButton selected={isStorySelected} onClick={storyPage}>
+          History
+        </MenuButton>
+        <MenuButton selected={isDiscographySelected} onClick={discographyPage}>
+          Discography
+        </MenuButton>
+        <MenuButton selected={isStoreSelected} onClick={storePage}>
+          Store
+        </MenuButton>
       </ButtonDiv>
     </NavBar>
   )

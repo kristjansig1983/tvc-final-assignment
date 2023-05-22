@@ -1,10 +1,16 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-export const MenuButton = styled.button`
+interface MenuButtonProps {
+  selected?: boolean
+}
+
+export const MenuButton = styled.button<MenuButtonProps>`
   height: 50px;
   width: 130px;
-  background-color: #4c19a3;
-  color: var(--clr-primary);
+  color: white;
+  background-color: ${({ selected }) =>
+    selected ? 'var(--clr-selected)' : '#100f0f'};
+  color: ${({ selected }) => (selected ? 'white' : 'white')};
   border: 3px solid var(--clr-primary);
   margin-left: 30px;
   margin-right: 30px;
@@ -12,9 +18,10 @@ export const MenuButton = styled.button`
   font-family: 'Varela Round';
   font-size: medium;
   font-weight: bold;
-  color: white;
   cursor: pointer;
+
   &:hover {
     background-color: var(--clr-hover);
+    color: white;
   }
 `

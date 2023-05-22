@@ -22,17 +22,16 @@ const ParagraphContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  background-color: #100f0f;
 `
 const ImageContainer = styled.div`
   position: relative;
+  margin: 20px;
+  margin-right: 50px;
 `
 
 const Image = styled.img<{ imageOnRight: boolean }>`
   height: 200px;
-  margin-right: ${(props) => (props.imageOnRight ? '20px' : '0')};
-  margin-left: ${(props) => (props.imageOnRight ? '0' : '20px')};
-
   ${(props) =>
     props.imageOnRight &&
     css`

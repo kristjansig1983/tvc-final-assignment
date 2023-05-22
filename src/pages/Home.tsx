@@ -27,14 +27,14 @@ function Home() {
           <Slider>
             <SliderImg
               src={
-                'https://scontent-dub4-1.xx.fbcdn.net/v/t39.30808-6/329593388_595452748608052_6060398424105268395_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=NV_tegXrIyQAX9OJ88e&_nc_ht=scontent-dub4-1.xx&oh=00_AfBGIiQNxmBm4_ZssYR0rCcWi2Vdi6mCu5wXI-zlkXgy8g&oe=64556CF6'
+                'https://i0.wp.com/atthebarrier.com/wp-content/uploads/2022/10/vintage-caravan-manchester-academy-3-30.10.22-1.jpg?resize=1024%2C727&ssl=1'
               }
             ></SliderImg>
           </Slider>,
           <Slider>
             <SliderImg
               src={
-                'https://scontent-dub4-1.xx.fbcdn.net/v/t39.30808-6/323885126_741035844109380_1451857662897556584_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=hlpY6cXFO4IAX8A3fGN&_nc_ht=scontent-dub4-1.xx&oh=00_AfCDeJwv3mnkvPRvF8Ivxb2XgYzY2gRjHfzaNVaQ3xK5xQ&oe=64569153'
+                'https://www.perun.hr/layout/i/galleries/opeth-vintage-caravan-zagreb-tvornica-kulture-26092022-galerija/VintageCaravan-260922-fotoSanjaMatic-11.jpg'
               }
             ></SliderImg>
           </Slider>,
