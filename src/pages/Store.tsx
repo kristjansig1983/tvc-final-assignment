@@ -2,6 +2,16 @@ import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Navigate,
+  useNavigate,
+} from 'react-router-dom'
+import Receipt from './Receipt'
+import ReviewOrder from './ReviewOrder'
+import { OrderButton } from '../components/orderButton'
 
 const DiscographyDiv = styled.div`
   display: grid;
@@ -52,6 +62,11 @@ const ContainerListWrapper = styled.div`
 `
 
 function Store() {
+  const navigate = useNavigate()
+
+  const reviewOrderPage = () => {
+    navigate('/reviewOrder')
+  }
   const [containers, setContainers] = useState<Container[]>([])
 
   useEffect(() => {
@@ -71,10 +86,13 @@ function Store() {
             <ContainerWrapper key={container.merchId} color={container.color}>
               <ImageContainer src={container.merchImgUrl} />
               <h3>{container.merchName}</h3>
+              <OrderButton>Add To Order</OrderButton>
             </ContainerWrapper>
           ))}
         </ContainerListWrapper>
+        <button onClick={reviewOrderPage}>Rewiew Order</button>
       </DiscographyDiv>
+
       <Footer />
     </div>
   )
