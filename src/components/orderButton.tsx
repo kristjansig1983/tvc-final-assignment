@@ -5,6 +5,7 @@ interface OrderButtonProps {
 }
 
 export const OrderButton = styled.button<OrderButtonProps>`
+  justify-self: center;
   height: 50px;
   width: 130px;
   color: white;

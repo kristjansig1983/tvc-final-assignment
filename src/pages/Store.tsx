@@ -35,6 +35,7 @@ interface Container {
   merchId: number
   merchName: string
   merchImgUrl: string
+  merchPrice: number
   color: string
 }
 
@@ -86,11 +87,12 @@ function Store() {
             <ContainerWrapper key={container.merchId} color={container.color}>
               <ImageContainer src={container.merchImgUrl} />
               <h3>{container.merchName}</h3>
+              <p>{container.merchPrice}</p>
               <OrderButton>Add To Order</OrderButton>
             </ContainerWrapper>
           ))}
         </ContainerListWrapper>
-        <button onClick={reviewOrderPage}>Rewiew Order</button>
+        <OrderButton onClick={reviewOrderPage}>Rewiew Order</OrderButton>
       </DiscographyDiv>
 
       <Footer />
