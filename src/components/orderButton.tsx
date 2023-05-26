@@ -9,8 +9,7 @@ export const OrderButton = styled.button<OrderButtonProps>`
   height: 50px;
   width: 130px;
   color: white;
-  background-color: ${({ selected }) =>
-    selected ? 'var(--clr-selected)' : '#100f0f'};
+  background-color: ${({ selected }) => (selected ? 'blue' : '#100f0f')};
   color: ${({ selected }) => (selected ? 'white' : 'white')};
   border: 3px solid var(--clr-primary);
   margin-left: 30px;

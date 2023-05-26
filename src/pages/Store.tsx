@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  Navigate,
-  useNavigate,
-} from 'react-router-dom'
-import Receipt from './Receipt'
-import ReviewOrder from './ReviewOrder'
+import { useNavigate } from 'react-router-dom'
 import { OrderButton } from '../components/orderButton'
 
 const DiscographyDiv = styled.div`
@@ -62,13 +54,31 @@ const ContainerListWrapper = styled.div`
   grid-gap: 50px;
 `
 
+const Container = ({
+  container,
+  addToOrder,
+}: {
+  container: Container
+  addToOrder: (container: Container) => void
+}) => {
+  const handleAddToOrder = () => {
+    addToOrder(container)
+  }
+
+  return (
+    <ContainerWrapper color={container.color}>
+      <ImageContainer src={container.merchImgUrl} />
+      <h3>{container.merchName}</h3>
+      <p>{container.merchPrice}</p>
+      <OrderButton onClick={handleAddToOrder}>Add To Order</OrderButton>
+    </ContainerWrapper>
+  )
+}
+
 function Store() {
   const navigate = useNavigate()
-
-  const reviewOrderPage = () => {
-    navigate('/reviewOrder')
-  }
   const [containers, setContainers] = useState<Container[]>([])
+  const [selectedItems, setSelectedItems] = useState<Container[]>([])
 
   useEffect(() => {
     async function fetchData() {
@@ -78,21 +88,32 @@ function Store() {
     }
     fetchData()
   }, [])
+
+  const addToOrder = (container: Container) => {
+    setSelectedItems((prevItems) => [...prevItems, container])
+  }
+
+  const reviewOrderPage = () => {
+    if (selectedItems.length > 0) {
+      navigate('/reviewOrder', { state: { selectedItems } })
+    } else {
+      alert('Please select at least one item.')
+    }
+  }
   return (
     <div>
       <Header />
       <DiscographyDiv>
         <ContainerListWrapper>
           {containers.map((container) => (
-            <ContainerWrapper key={container.merchId} color={container.color}>
-              <ImageContainer src={container.merchImgUrl} />
-              <h3>{container.merchName}</h3>
-              <p>{container.merchPrice}</p>
-              <OrderButton>Add To Order</OrderButton>
-            </ContainerWrapper>
+            <Container
+              key={container.merchId}
+              container={container}
+              addToOrder={addToOrder}
+            />
           ))}
         </ContainerListWrapper>
-        <OrderButton onClick={reviewOrderPage}>Rewiew Order</OrderButton>
+        <OrderButton onClick={reviewOrderPage}>Review Order</OrderButton>
       </DiscographyDiv>
 
       <Footer />
