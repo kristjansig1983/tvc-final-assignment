@@ -13,9 +13,46 @@ interface Container {
   color: string
 }
 
-interface ReviewOrderProps {
-  selectedItems: Container[]
-}
+const ReviewDiv = styled.div`
+  display: grid;
+  flex-direction: column;
+  grid-template-columns: repeat(1, 1fr);
+  background-color: black;
+  opacity: 0.87;
+  color: white;
+  height: auto;
+  font-family: 'Varela Round';
+`
+
+const ContainerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #100f0f;
+  border-radius: 10px;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: left;
+  align-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  margin: 20px;
+`
+
+const Review = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  height: 40em;
+  width: 35em;
+`
+const ItemParagraph = styled.p`
+  display: flex;
+  align-self: center;
+`
 
 function ReviewOrder() {
   const location = useLocation()
@@ -38,21 +75,27 @@ function ReviewOrder() {
   return (
     <div>
       <Header />
-      <h1>Review Order</h1>
-      <h2>Selected Items:</h2>
-      {selectedItems.map((item: Container) => (
-        <div key={item.merchId}>
-          <p>Item Name: {item.merchName}</p>
-          <p>Item Price: {item.merchPrice}</p>
-          <hr />
-        </div>
-      ))}
-      <p>Total Price: {totalOrderPrice}</p>
+      <ReviewDiv>
+        <ContainerWrapper>
+          <Review>
+            <h1>Review Order</h1>
+            <h2>Selected Items:</h2>
+            {selectedItems.map((item: Container) => (
+              <div key={item.merchId}>
+                <ItemParagraph>
+                  {' '}
+                  {item.merchName} {item.merchPrice}kr
+                </ItemParagraph>
+              </div>
+            ))}
+            <p>Total Price: {totalOrderPrice}</p>
 
-      <OrderButton type="submit" onClick={placeOrder}>
-        Place Order
-      </OrderButton>
-
+            <OrderButton type="submit" onClick={placeOrder}>
+              Place Order
+            </OrderButton>
+          </Review>
+        </ContainerWrapper>
+      </ReviewDiv>
       <Footer />
     </div>
   )

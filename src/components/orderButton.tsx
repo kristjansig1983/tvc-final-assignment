@@ -9,7 +9,7 @@ export const OrderButton = styled.button<OrderButtonProps>`
   height: 50px;
   width: 130px;
   color: white;
-  background-color: ${({ selected }) => (selected ? 'blue' : '#100f0f')};
+  background-color: ${({ selected }) => (selected ? '#1d1c1c' : '#2F2E2E')};
   color: ${({ selected }) => (selected ? 'white' : 'white')};
   border: 3px solid var(--clr-primary);
   margin-left: 30px;
@@ -22,7 +22,7 @@ export const OrderButton = styled.button<OrderButtonProps>`
   cursor: pointer;
 
   &:hover {
-    background-color: blue;
+    background-color: #1d1c1c;
     color: white;
   }
 `

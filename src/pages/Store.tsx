@@ -57,20 +57,29 @@ const ContainerListWrapper = styled.div`
 const Container = ({
   container,
   addToOrder,
+  removeFromOrder,
+  isInOrder,
 }: {
   container: Container
   addToOrder: (container: Container) => void
+  removeFromOrder: (container: Container) => void
+  isInOrder: boolean
 }) => {
-  const handleAddToOrder = () => {
-    addToOrder(container)
+  const handleButtonClick = () => {
+    if (isInOrder) {
+      removeFromOrder(container)
+    } else {
+      addToOrder(container)
+    }
   }
-
   return (
     <ContainerWrapper color={container.color}>
       <ImageContainer src={container.merchImgUrl} />
       <h3>{container.merchName}</h3>
       <p>{container.merchPrice}</p>
-      <OrderButton onClick={handleAddToOrder}>Add To Order</OrderButton>
+      <OrderButton onClick={handleButtonClick}>
+        {isInOrder ? 'Remove From Order' : 'Add To Order'}
+      </OrderButton>
     </ContainerWrapper>
   )
 }
@@ -93,6 +102,12 @@ function Store() {
     setSelectedItems((prevItems) => [...prevItems, container])
   }
 
+  const removeFromOrder = (container: Container) => {
+    setSelectedItems((prevItems) =>
+      prevItems.filter((item) => item.merchId !== container.merchId)
+    )
+  }
+
   const reviewOrderPage = () => {
     if (selectedItems.length > 0) {
       navigate('/reviewOrder', { state: { selectedItems } })
@@ -100,6 +115,11 @@ function Store() {
       alert('Please select at least one item.')
     }
   }
+
+  const isInOrder = (container: Container) => {
+    return selectedItems.some((item) => item.merchId === container.merchId)
+  }
+
   return (
     <div>
       <Header />
@@ -110,6 +130,8 @@ function Store() {
               key={container.merchId}
               container={container}
               addToOrder={addToOrder}
+              removeFromOrder={removeFromOrder}
+              isInOrder={isInOrder(container)}
             />
           ))}
         </ContainerListWrapper>
